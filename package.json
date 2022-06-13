@@ -10,23 +10,23 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:lynxlowcode.newReactCompnent"
+		"onCommand:lynxlowcode.createComponent"
 	],
 	"main": "./dist/extension.js",
 	"publisher": "waitInHope",
 	"contributes": {
 		"commands": [
 			{
-				"command": "lynxlowcode.newReactCompnent",
-				"title": "新建react组件"
+				"command": "lynxlowcode.createComponent",
+				"title": "createComponent"
 			}
 		],
 		"menus": {
-			"explorer/context": [
+			"editor/title": [
 				{
-					"command": "lynxlowcode.newReactCompnent",
-					"group": "z_commands",
-					"when": "exploreResourceIsFolder"
+					"command": "lynxlowcode.createComponent",
+					"when": "editorFocus",
+					"group": "navigation"
 				}
 			]
 		}

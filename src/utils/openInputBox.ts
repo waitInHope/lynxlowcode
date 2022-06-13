@@ -12,12 +12,14 @@ export default function openInputBox(): void {
 
     const inputVal = inputBox.value;
 
+    let loc = '';
+
     inputBox.onDidChangeValue(async (val: string) => {
         if(val.length < 1) {
             return "组件名称不能为空";
         }
 
-        const loc = join(__dirname, val);
+        loc = join(__dirname, val);
 
         if(await pathExists(loc)) {
             return `该路径${loc}已存在, 请换一个组件名称或者路径`;
@@ -40,7 +42,7 @@ export default function openInputBox(): void {
 
         if(result) {
             inputBox.hide();
-            window.showInformationMessage('创建成功，请查看');
+            window.showInformationMessage(`创建成功，请查看${loc}`);
         } else {
             window.showInformationMessage('创建失败！');
         }
